@@ -1,7 +1,9 @@
 package casestudy.step_def;
 
+import casestudy.pages.BasketPage;
 import casestudy.pages.SearchResultPage;
 import casestudy.pages.SignInPage;
+import casestudy.utils.Helper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,9 +19,11 @@ public class MyStepdefs {
     SearchResultPage searchResultPage = new SearchResultPage();
     SignInPage signInPage = new SignInPage();
 
+    BasketPage basketPage = new BasketPage();
+
     @Given("homepage is open")
     public void homepageIsOpen() {
-        homepage.chooseUS();
+
     }
 
     @When("I close the pop up")
@@ -28,62 +32,36 @@ public class MyStepdefs {
         homepage.closePopup();
     }
 
-
-    @When("Page title verification")
-    public void pageTitleVerification() {
-        homepage.getPageTitle();
-    }
-
-    @Then("Maximize windows")
-    public void maximizeWindows() {
-        Driver.get().manage().window().maximize();
-    }
-
-    @And("Search for Drone")
-    public void searchForDrone() {
-        homepage.searchInput.click();
-        homepage.searchInput.sendKeys("drone");
-        homepage.searchButton.click();
+    @When("Login hover and click")
+    public void loginHoverAndClick() {
+        homepage.chooseUS();
 
     }
 
-    @And("Verify search results are listed for Drone")
-    public void verifySearchResultsAreListedForDrone() {
-        searchResultPage.verifySearchResult();
+    @And("login with facebook")
+    public void loginWithFacebook() {
+        signInPage.connectFacebook();
     }
 
-    @When("I open {string} dropdown menu")
-    public void iOpenDropdownMenu(String dropdown) {
-        homepage.openDropdown(dropdown);
+    @And("Search for products")
+    public void searchForProducts() {
+        homepage.searchProducts();
     }
 
-    @Then("I Choose {string} submenu")
-    public void IChooseSubmenu(String submenu) {
-        homepage.openSubmenu(submenu);
+    @And("Product is Select")
+    public void productIsSelect() {
+        searchResultPage.setSelectProduct();
+        Helper.waitFor(5);
+        searchResultPage.setSelectBasket();
+
+
     }
 
-    @Then("Sign in page should open")
-    public void signInPageShouldOpen() {
-        signInPage.verifyTitle();
-    }
-
-    @Then("I filled account information")
-    public void iFilledAccountInformation() {
-        signInPage.fillInformation();
-    }
-
-    @And("I press Enter button")
-    public void iPressEnterButton() {
-        signInPage.sendEnter();
-    }
-    @And("Verify successful login")
-    public void verifySuccessfulLogin() {
-        signInPage.verifySignIn();
+    @And("Verify product in Basket")
+    public void verifyProductInBasket() {
+        basketPage.verifyProducts();
     }
 
 
-    @Then("Sign in with Google")
-    public void signInWithGoogle() {
-        signInPage.openGoogleLogin();
-    }
+
 }

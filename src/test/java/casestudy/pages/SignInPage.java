@@ -3,6 +3,7 @@ package casestudy.pages;
 import casestudy.utils.Driver;
 import casestudy.utils.Helper;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,38 +14,50 @@ public class SignInPage {
         PageFactory.initElements(Driver.get(), this);
     }
 
-    @FindBy(tagName = "h1")
-    public WebElement title;
-    @FindBy(xpath = "//*[@id=\"fld-e\"]")
-    public WebElement eMail;
-    @FindBy(xpath = "//*[@id=\"fld-p1\"]")
-    public WebElement password;
-    @FindBy(css = ".plButton-label.v-ellipsis")
-    public WebElement hiText;
-    @FindBy(xpath = "//button[contains(text(),'Sign in with Google')]")
-    public WebElement googleButton;
-    public void verifyTitle() {
-        Assert.assertEquals("Sign In to Best Buy", title.getText());
+    @FindBy(xpath = "//*[@id=\"btnFacebook\"]")
+    public WebElement facebookLogin;
+
+    @FindBy(xpath = "//*[@id=\"email\"]")
+    public WebElement facebookEmail;
+
+    @FindBy(xpath = "//*[@id=\"pass\"]")
+    public WebElement facebookPass;
+
+    @FindBy (css="#onetrust-accept-btn-handler")
+    public WebElement agreeButton;
+
+    @FindBy(css = "#loginbutton")
+    public WebElement facebookLoginButton;
+
+    @FindBy (xpath = "//span[text()='Hesabım']")
+    public WebElement loggedInText;
+
+
+
+
+    public void connectFacebook() {
+        agreeButton.click();
+        Helper.waitFor(1);
+        facebookLogin.click();
+        facebookEmail.click();
+        facebookEmail.sendKeys("100018049470329");
+        facebookPass.click();
+        facebookPass.sendKeys("sametberkmeno");
+
+        facebookLoginButton.click();
+
+        Helper.waitFor(5);
+
+
+
+        System.out.println(loggedInText.getText());
+        Assert.assertTrue(loggedInText.isDisplayed());
+
+
+
     }
 
-    public void fillInformation() {
-        eMail.click();
-        eMail.sendKeys("nemot85539@nefacility.com");
-        password.click();
-        password.sendKeys("Kloia+test123");
 
-    }
 
-    public void sendEnter(){
-        password.sendKeys(Keys.RETURN);
-    }
 
-    public void verifySignIn (){
-        Assert.assertTrue(hiText.getText().contains("Hi"));
-    }
-
-    public void openGoogleLogin() {
-        googleButton.click();
-
-    }
 }

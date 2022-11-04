@@ -14,37 +14,34 @@ public class HomePage {
 
     }
 
-    @FindBy(css = "[alt='United States']")
-    public WebElement country;
-    @FindBy(css = ".c-close-icon.c-modal-close-icon")
-    public WebElement closeButton;
-    @FindBy(css ="#gh-search-input")
-    public WebElement searchInput;
-    @FindBy(css= ".header-search-button")
-    public WebElement searchButton;
+    @FindBy(css = "#myAccount")
+    public WebElement loginHover;
+    @FindBy(css = "#login")
+    public WebElement loginClick;
+    @FindBy(xpath = "//input[@class=\"desktopOldAutosuggestTheme-UyU36RyhCTcuRs_sXL9b\"]")
+    public static WebElement searchInput;
+
+    @FindBy(xpath = "/html/body/div[1]/div/div/div[3]/div[5]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div/div[2]")
+    public static WebElement searchButton;
 
     public void chooseUS() {
-        country.click();
+        loginHover.click();
+        loginClick.click();
+        Helper.waitFor(2);
     }
 
     public void closePopup() {
-        closeButton.click();
+        loginClick.click();
     }
 
-    public void getPageTitle() {
-        String expectedTitle = "Best Buy | Official Online Store | Shop Now & Save";
-
-        Assert.assertEquals(expectedTitle, Driver.get().getTitle());
-        System.out.println(Driver.get().getTitle());
+    public static void searchProducts(){
+        searchInput.click();
+        searchInput.sendKeys("bilgisayar");
+        searchButton.click();
+        Helper.waitFor(10);
     }
 
-    public void openDropdown(String dropdown) {
-        String locator = "//span[text()='" + dropdown + "']";
-        Driver.get().findElement(By.xpath(locator)).click();
-    }
 
-    public void openSubmenu(String submenu) {
-        Helper.clickWithLinkText(submenu);
-    }
+
 
 }

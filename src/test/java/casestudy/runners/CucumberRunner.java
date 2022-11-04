@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/default-html-reports"},
         glue = "casestudy/step_def",
         features = "src/test/resources/features",
+        tags = "@scenario2",
         dryRun = false
 )
 public class CucumberRunner {

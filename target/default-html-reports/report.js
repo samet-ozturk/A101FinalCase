@@ -22,62 +22,30 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.step({
-  "name": "I close the pop up",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "casestudy.step_def.MyStepdefs.iCloseThePopUp()"
-});
-formatter.result({
-  "status": "passed"
-});
 formatter.scenario({
-  "name": "Verify page title",
+  "name": "",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@scenario2"
+    }
+  ]
 });
 formatter.step({
-  "name": "Page title verification",
+  "name": "Search for products",
   "keyword": "When "
 });
 formatter.match({
-  "location": "casestudy.step_def.MyStepdefs.pageTitleVerification()"
+  "location": "casestudy.step_def.MyStepdefs.searchForProducts()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Maximize windows",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "casestudy.step_def.MyStepdefs.maximizeWindows()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "Search for Drone",
+  "name": "Product is Select",
   "keyword": "And "
 });
 formatter.match({
-  "location": "casestudy.step_def.MyStepdefs.searchForDrone()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "Verify search results are listed for Drone",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "casestudy.step_def.MyStepdefs.verifySearchResultsAreListedForDrone()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
+  "location": "casestudy.step_def.MyStepdefs.productIsSelect()"
 });
