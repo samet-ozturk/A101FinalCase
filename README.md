@@ -19,6 +19,15 @@
 - Seçilen ürün için 2 tane farklı satıcıdan ürün seçilip sepete eklenir.
 - Seçilen ürünün doğru olarak eklendiği ‘Sepetim’ sayfasında doğrulanmalıdır.
 
+## Kullanılan Teknolojiler
+
+- Java dilinde geliştirildi ve Maven Repo kullanıldı.
+- Yazılan senaryo için Selenium ve JUnit/Testng kullanıldı.
+- Assertions kullanarak senaryonun doğru çalışırlığı kontrol edildi.
+- Page object model uygulandı.
+- Loglama yapıldı.
+- OOP prensiplerine uygun geliştirildi.
+
 
 ### Bu Projeyi Çalıştırırken Dikkat Etmeniz Gerekenler
 
