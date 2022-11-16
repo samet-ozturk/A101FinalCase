@@ -1,20 +1,43 @@
 # A101FinalCase
-## Bu Proje'de Dikkat etmeniz gerekenler;
+
+
+## Proje: Hepsiburada.com üzerinden sepete ürün eklenmesi 
+
+1. Kullanıcı girişi yapılarak sepete ürün eklenmesi
+- Kullanıcı Hepsiburada.com sitesini ziyaret eder.
+- Kullanıcı giriş işlemi yapılır.
+- Yönlendirmeden sonra anasayfada kullanıcı giriş işleminin yapıldığı doğrulanır
+- Kullanıcı, burada satın almak istediği ürün için arama yapacaktır.
+- Kullanıcı, Arama sonucunda ekrana gelen ürün listesinden (veya tek bir sonuç da dönmüş olabilir) ürün seçer.
+- Seçilen ürün için 2 tane farklı satıcıdan ürün seçilip sepete eklenir.
+- Seçilen ürünün doğru olarak eklendiği ‘Sepetim’ sayfasında doğrulanmalıdır.
+
+2.Kullanıcı girişi yapılmadan belirtilen ürünü sepete ekleme
+
+- Kullanıcı Hepsiburada.com sitesini ziyaret eder.
+- Kullanıcı, Arama sonucunda ekrana gelen ürün listesinden (veya tek bir sonuç da dönmüş olabilir) ürün seçer.
+- Seçilen ürün için 2 tane farklı satıcıdan ürün seçilip sepete eklenir.
+- Seçilen ürünün doğru olarak eklendiği ‘Sepetim’ sayfasında doğrulanmalıdır.
+
+
+### Bu Projeyi Çalıştırırken Dikkat Etmeniz Gerekenler
 
 ###2 Adet CASE Bulunmakta;
--1. Login işlemi yapıldıktan sonra yapılacak arama işlemi.
--2. Login işlemi yapılmadan direkt arama işlemi.
+- 1. Kullanıcı girişi yapılarak sepete ürün eklenmesi
+- 2. Kullanıcı girişi yapılmadan belirtilen ürünü sepete eklenmesi
 
 -----
-![Image](https://imgyukle.com/f/2022/11/04/JEwVvH.png)
 
-**Proje'nin 1. Case'ini (login işlemli) çalıştırmak isterseniz şunları yapın**
-![Image](https://imgyukle.com/f/2022/11/04/JEwxUb.png)
+**Proje'nin 1. Case'ini (login işlemli) çalıştırmak isterseniz şunu yapın**
+- src/test/java/casestudy/runners/cucumberRunner.java içerisine gidin,
+- "tags = "@scenario2"," kodunu silin veya yorum satırına alın ve Run diyerek 1. Case'i çalıştırabilirsiniz.
+![Image](https://imgyukle.com/f/2022/11/16/JyMwLn.png)
 
-Kırmızı daire içerisine alınmış kodu silin. ve Run deyin.
 
 
 **Proje'nin 2. Case'ini (loginsiz olan) çalıştırmak isterseniz ise direkt çalıştırabilirsiniz.**
+
+
 
 
 
